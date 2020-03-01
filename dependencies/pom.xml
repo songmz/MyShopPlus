@@ -11,24 +11,24 @@
 
     <properties>
         <!-- Commons -->
-<!--        <okhttp3.version>4.1.0</okhttp3.version>-->
-<!--        <bitwalker.version>1.21</bitwalker.version>-->
-<!--        <feign-okhttp.version>10.3.0</feign-okhttp.version>-->
+        <okhttp3.version>4.1.0</okhttp3.version>
+        <bitwalker.version>1.21</bitwalker.version>
+        <feign-okhttp.version>10.3.0</feign-okhttp.version>
 
         <!-- Native Cloud -->
 <!--        因为tidb目前只能用5代的mysql客户端，所以还不能使用8代的-->
         <mysql.version>5.1.47</mysql.version>
-        <dubbo.version>2.7.2</dubbo.version>
+        <dubbo.version>2.7.3</dubbo.version>
         <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
         <dubbo-actuator.version>2.7.1</dubbo-actuator.version>
-<!--        <dubbo-nacos.version>1.1.3</dubbo-nacos.version>-->
-<!--        <spring-boot-mapper.version>2.1.5</spring-boot-mapper.version>-->
+        <dubbo-nacos.version>1.1.3</dubbo-nacos.version>
+        <spring-boot-mapper.version>2.1.5</spring-boot-mapper.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-cloud-alibaba.verion>2.1.0.RELEASE</spring-cloud-alibaba.verion>
         <alibaba-spring-context-support.version>1.0.2</alibaba-spring-context-support.version>
 
         <!-- Ali Cloud -->
-<!--        <aliyun-sdk-oss.version>3.6.0</aliyun-sdk-oss.version>-->
+        <aliyun-sdk-oss.version>3.6.0</aliyun-sdk-oss.version>
     </properties>
 
     <licenses>
