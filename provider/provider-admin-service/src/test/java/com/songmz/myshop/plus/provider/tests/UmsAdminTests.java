@@ -1,6 +1,6 @@
 package com.songmz.myshop.plus.provider.tests;
 
-import com.songmz.myshop.plus.provider.UmsAdminService;
+import com.songmz.myshop.plus.provider.api.UmsAdminService;
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 import com.songmz.myshop.plus.provider.mapper.UmsAdminMapper;
 import org.junit.Assert;

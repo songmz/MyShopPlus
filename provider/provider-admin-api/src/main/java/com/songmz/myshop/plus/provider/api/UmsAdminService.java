@@ -1,4 +1,4 @@
-package com.songmz.myshop.plus.provider;
+package com.songmz.myshop.plus.provider.api;
 
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 

@@ -1,6 +1,6 @@
 package com.songmz.myshop.plus.provider.service;
 
-import com.songmz.myshop.plus.provider.UmsAdminService;
+import com.songmz.myshop.plus.provider.api.UmsAdminService;
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 import com.songmz.myshop.plus.provider.mapper.UmsAdminMapper;
 import org.apache.dubbo.config.annotation.Service;
@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author songmz
  * @date 2020/3/2 15:06
- * @see com.songmz.myshop.plus.provider.UmsAdminService
+ * @see UmsAdminService
 */
 @Service(version = "1.0.0")
 public class UmsAdminServiceImpl implements UmsAdminService {
