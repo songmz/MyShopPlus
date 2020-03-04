@@ -9,8 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>commons</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>configuration</artifactId>
+    <packaging>jar</packaging>
     <url>http://www.songmz.com</url>
     <inceptionYear>2020-Now</inceptionYear>
 
@@ -29,16 +29,8 @@
         </developer>
     </developers>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
-
     <modules>
-        <module>commons-dto</module>
-        <module>commons-utils</module>
-        <module>commons-provider</module>
+        <module>configuration-feign</module>
+<!--        <module>configuration-sentinel</module>-->
     </modules>
 </project>

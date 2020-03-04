@@ -3,6 +3,7 @@ package com.songmz.myshop.plus.business.controller;
 import com.google.common.collect.Maps;
 import com.songmz.myshop.plus.business.dto.LoginInfo;
 import com.songmz.myshop.plus.business.dto.LoginParam;
+import com.songmz.myshop.plus.business.feign.ProfileFeign;
 import com.songmz.myshop.plus.commons.dto.ResponseResult;
 import com.songmz.myshop.plus.commons.utils.MapperUtils;
 import com.songmz.myshop.plus.commons.utils.OkHttpClientUtil;
@@ -62,8 +63,8 @@ public class LoginController {
     @Resource
     public TokenStore tokenStore;
 
-//    @Resource
-//    private ProfileFeign profileFeign;
+    @Resource
+    private ProfileFeign profileFeign;
 
     @Reference(version = "1.0.0")
     private UmsAdminService umsAdminService;
@@ -126,16 +127,13 @@ public class LoginController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         // 获取个人信息
-        /*String jsonString = profileFeign.info(authentication.getName());
+        String jsonString = profileFeign.info(authentication.getName());
         UmsAdmin umsAdmin = MapperUtils.json2pojoByTree(jsonString, "data", UmsAdmin.class);
 
         // 如果触发熔断则返回熔断结果
         if (umsAdmin == null) {
             return MapperUtils.json2pojo(jsonString, ResponseResult.class);
-        }*/
-        /*暂时替换以上代码*/
-        UmsAdmin umsAdmin = umsAdminService.get(authentication.getName());
-
+        }
 
         // 封装并返回结果
         LoginInfo loginInfo = new LoginInfo();

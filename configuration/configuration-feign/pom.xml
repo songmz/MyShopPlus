@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.songmz.myshop.plus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>configuration</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>commons</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>configuration-feign</artifactId>
+    <packaging>jar</packaging>
     <url>http://www.songmz.com</url>
     <inceptionYear>2020-Now</inceptionYear>
 
@@ -25,20 +25,20 @@
         <developer>
             <id>songmz</id>
             <name>Rafeal Song</name>
-            <email>songmz.cn@gmail.com</email>
+            <email>songmz.cnr@gmail.com</email>
         </developer>
     </developers>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>commons-dto</module>
-        <module>commons-utils</module>
-        <module>commons-provider</module>
-    </modules>
 </project>

@@ -64,11 +64,11 @@ dubbo:
     address: nacos://${base.config.nacos.hostname}
     port: ${base.config.nacos.port}
 
-#feign:
-#  okhttp:
-#    enabled: true
-#  httpclient:
-#    enabled: false
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
 #  sentinel:
 #    enabled: true
 
