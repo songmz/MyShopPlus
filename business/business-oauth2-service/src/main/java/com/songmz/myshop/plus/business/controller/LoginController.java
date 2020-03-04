@@ -1,8 +1,11 @@
 package com.songmz.myshop.plus.business.controller;
 
-import com.songmz.myshop.plus.business.dto.LoginParam;
 import com.google.common.collect.Maps;
+import com.songmz.myshop.plus.business.dto.LoginParam;
 import com.songmz.myshop.plus.commons.dto.ResponseResult;
+import com.songmz.myshop.plus.commons.utils.MapperUtils;
+import com.songmz.myshop.plus.commons.utils.OkHttpClientUtil;
+import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * <p>登录管理</p>
@@ -82,7 +86,7 @@ public class LoginController {
         params.put("client_id", oauth2ClientId);
         params.put("client_secret", oauth2ClientSecret);
 
-        /*try {
+        try {
             // 解析响应结果封装并返回
             Response response = OkHttpClientUtil.getInstance().postData(URL_OAUTH_TOKEN, params);
             String jsonString = Objects.requireNonNull(response.body()).string();
@@ -91,10 +95,10 @@ public class LoginController {
             result.put("token", token);
 
             // 发送登录日志
-            sendAdminLoginLog(userDetails.getUsername(), request);
+//            sendAdminLoginLog(userDetails.getUsername(), request);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
 
         return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.OK, "登录成功", result);
     }

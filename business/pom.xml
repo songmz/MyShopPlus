@@ -58,11 +58,11 @@
             <artifactId>commons-dto</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.songmz.myshop.plus</groupId>-->
-<!--            <artifactId>commons-utils</artifactId>-->
-<!--            <version>${project.parent.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.songmz.myshop.plus</groupId>
+            <artifactId>commons-utils</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.songmz.myshop.plus</groupId>-->
 <!--            <artifactId>configuration-feign</artifactId>-->
