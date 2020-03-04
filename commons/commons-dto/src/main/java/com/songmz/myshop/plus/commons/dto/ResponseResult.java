@@ -125,7 +125,7 @@ public class ResponseResult<T> implements Serializable {
      * Description:
      * </p>
      *
-     * @author Lusifer
+     * @author songmz
      * @version v1.0.0
      * @date 2019-07-30 05:02:49
      * @see com.songmz.myshop.plus.commons.dto

@@ -1,16 +1,26 @@
 package com.songmz.myshop.plus.business.controller;
 
 import com.google.common.collect.Maps;
+import com.songmz.myshop.plus.business.dto.LoginInfo;
 import com.songmz.myshop.plus.business.dto.LoginParam;
 import com.songmz.myshop.plus.commons.dto.ResponseResult;
 import com.songmz.myshop.plus.commons.utils.MapperUtils;
 import com.songmz.myshop.plus.commons.utils.OkHttpClientUtil;
+import com.songmz.myshop.plus.provider.api.UmsAdminService;
+import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 import okhttp3.Response;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,9 +64,9 @@ public class LoginController {
 
 //    @Resource
 //    private ProfileFeign profileFeign;
-//
-//    @Reference(version = "1.0.0")
-//    private UmsAdminService umsAdminService;
+
+    @Reference(version = "1.0.0")
+    private UmsAdminService umsAdminService;
 //
 //    @Reference(version = "1.0.0")
 //    private MessageService messageService;
@@ -73,10 +83,11 @@ public class LoginController {
         Map<String, Object> result = Maps.newHashMap();
 
         // 验证密码是否正确
-        /*UserDetails userDetails = userDetailsService.loadUserByUsername(loginParam.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(loginParam.getUsername());
         if (userDetails == null || !passwordEncoder.matches(loginParam.getPassword(), userDetails.getPassword())) {
-            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
-        }*/
+//            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
+            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.FAIL, "账号或密码错误", result);
+        }
 
         // 通过 HTTP 客户端请求登录接口
         Map<String, String> params = Maps.newHashMap();
@@ -108,20 +119,23 @@ public class LoginController {
      *
      * @return {@link ResponseResult}
      */
-    /*@PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('USER')")
     @GetMapping(value = "/user/info")
     public ResponseResult<LoginInfo> info() throws Exception {
         // 获取认证信息
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         // 获取个人信息
-        String jsonString = profileFeign.info(authentication.getName());
+        /*String jsonString = profileFeign.info(authentication.getName());
         UmsAdmin umsAdmin = MapperUtils.json2pojoByTree(jsonString, "data", UmsAdmin.class);
 
         // 如果触发熔断则返回熔断结果
         if (umsAdmin == null) {
             return MapperUtils.json2pojo(jsonString, ResponseResult.class);
-        }
+        }*/
+        /*暂时替换以上代码*/
+        UmsAdmin umsAdmin = umsAdminService.get(authentication.getName());
+
 
         // 封装并返回结果
         LoginInfo loginInfo = new LoginInfo();
@@ -129,14 +143,14 @@ public class LoginController {
         loginInfo.setAvatar(umsAdmin.getIcon());
         loginInfo.setNickName(umsAdmin.getNickName());
         return new ResponseResult<LoginInfo>(ResponseResult.CodeStatus.OK, "获取用户信息", loginInfo);
-    }*/
+    }
 
     /**
      * 注销
      *
      * @return {@link ResponseResult}
      */
-   /* @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('USER')")
     @PostMapping(value = "/user/logout")
     public ResponseResult<Void> logout(HttpServletRequest request) {
         // 获取 token
@@ -145,7 +159,7 @@ public class LoginController {
         OAuth2AccessToken oAuth2AccessToken = tokenStore.readAccessToken(token);
         tokenStore.removeAccessToken(oAuth2AccessToken);
         return new ResponseResult<Void>(ResponseResult.CodeStatus.OK, "用户已注销");
-    }*/
+    }
 
     /**
      * 发送登录日志
