@@ -5,7 +5,6 @@ import com.songmz.myshop.plus.provider.api.UmsAdminService;
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2020/3/3 9:10
  * @see com.songmz.myshop.plus.business.controller
 */
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(value = "reg")
 public class RegController {
