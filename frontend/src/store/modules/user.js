@@ -85,7 +85,16 @@ const actions = {
       commit('RESET_STATE')
       resolve()
     })
+  },
+
+  // 设置头像
+  setAvatar({ commit }, avatar) {
+    return new Promise(resolve => {
+      commit('SET_AVATAR', avatar)
+      resolve()
+    })
   }
+
 }
 
 export default {

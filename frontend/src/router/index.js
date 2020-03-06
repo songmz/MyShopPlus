@@ -73,12 +73,12 @@ export const constantRoutes = [
         name: 'ProfilePassword',
         component: () => import('@/views/profile/password'),
         meta: { title: '修改密码' }
-      // },
-      // {
-      //   path: 'icon',
-      //   name: 'ProfileIcon',
-      //   component: () => import('@/views/profile/icon.vuee'),
-      //   meta: { title: '修改头像' }
+      },
+      {
+        path: 'icon',
+        name: 'ProfileIcon',
+        component: () => import('@/views/profile/icon.vue'),
+        meta: { title: '修改头像' }
       }
     ]
   },

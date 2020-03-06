@@ -31,7 +31,8 @@ security:
       token-info-uri: http://${base.config.oauth.hostname}:${base.config.oauth.port}/oauth/check_token
 
 server:
-  port: 10001
+  # 教程中用的10001，但10001被百度云占用了，所以改为10002
+  port: 10002
 
 management:
   endpoints:
