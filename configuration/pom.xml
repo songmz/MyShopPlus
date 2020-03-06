@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>configuration</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <url>http://www.songmz.com</url>
     <inceptionYear>2020-Now</inceptionYear>
 
@@ -24,7 +24,7 @@
     <developers>
         <developer>
             <id>songmz</id>
-            <name>Rafeal Song</name>
+            <name>Rafael Song</name>
             <email>songmz.cn@gmail.com</email>
         </developer>
     </developers>

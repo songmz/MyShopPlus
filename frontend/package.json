@@ -2,7 +2,7 @@
   "name": "myshop_plus",
   "version": "0.0.1",
   "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Rafeal Song <songmz.cn@gmail.com>",
+  "author": "Rafael Song <songmz.cn@gmail.com>",
   "license": "Apache 2.0",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -22,6 +22,7 @@
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
     "vue": "2.6.10",
+    "vue-image-crop-upload": "^2.5.0",
     "vue-router": "3.0.6",
     "vuex": "3.1.0"
   },
