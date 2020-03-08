@@ -1,6 +1,8 @@
 package com.songmz.myshop.plus.business.controller;
 
 import com.google.common.collect.Maps;
+import com.songmz.myshop.plus.business.BusinessException;
+import com.songmz.myshop.plus.business.BusinessStatus;
 import com.songmz.myshop.plus.business.dto.LoginInfo;
 import com.songmz.myshop.plus.business.dto.LoginParam;
 import com.songmz.myshop.plus.business.feign.ProfileFeign;
@@ -89,8 +91,10 @@ public class LoginController {
         // 验证密码是否正确
         UserDetails userDetails = userDetailsService.loadUserByUsername(loginParam.getUsername());
         if (userDetails == null || !passwordEncoder.matches(loginParam.getPassword(), userDetails.getPassword())) {
-//            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
-            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.FAIL, "账号或密码错误", result);
+            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
+
+            // 改为使用全局异常方式处理
+//            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.FAIL, "账号或密码错误", result);
         }
 
         // 通过 HTTP 客户端请求登录接口
