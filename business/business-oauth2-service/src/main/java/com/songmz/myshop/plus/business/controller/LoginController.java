@@ -4,11 +4,15 @@ import com.google.common.collect.Maps;
 import com.songmz.myshop.plus.business.dto.LoginInfo;
 import com.songmz.myshop.plus.business.dto.LoginParam;
 import com.songmz.myshop.plus.business.feign.ProfileFeign;
+import com.songmz.myshop.plus.cloud.api.MessageService;
+import com.songmz.myshop.plus.cloud.dto.UmsAdminLoginLogDTO;
 import com.songmz.myshop.plus.commons.dto.ResponseResult;
 import com.songmz.myshop.plus.commons.utils.MapperUtils;
 import com.songmz.myshop.plus.commons.utils.OkHttpClientUtil;
+import com.songmz.myshop.plus.commons.utils.UserAgentUtils;
 import com.songmz.myshop.plus.provider.api.UmsAdminService;
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
+import eu.bitwalker.useragentutils.Browser;
 import okhttp3.Response;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
@@ -66,9 +71,9 @@ public class LoginController {
 
     @Reference(version = "1.0.0")
     private UmsAdminService umsAdminService;
-//
-//    @Reference(version = "1.0.0")
-//    private MessageService messageService;
+
+    @Reference(version = "1.0.0")
+    private MessageService messageService;
 
     /**
      * 登录
@@ -105,7 +110,7 @@ public class LoginController {
             result.put("token", token);
 
             // 发送登录日志
-//            sendAdminLoginLog(userDetails.getUsername(), request);
+            sendAdminLoginLog(userDetails.getUsername(), request);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,7 +167,7 @@ public class LoginController {
      *
      * @param request {@link HttpServletRequest}
      */
-    /*private void sendAdminLoginLog(String username, HttpServletRequest request) {
+    private void sendAdminLoginLog(String username, HttpServletRequest request) {
         UmsAdmin umsAdmin = umsAdminService.get(username);
 
         if (umsAdmin != null) {
@@ -178,7 +183,11 @@ public class LoginController {
             dto.setAddress(address);
             dto.setUserAgent(browser.getName());
 
+            /**
+             * 如果用Feign来发送消息的话，需要传递token，但直接使用dubbo来发送就无需token了
+             * @see com.songmz.myshop.plus.cloud.controller.MessageController
+             */
             messageService.sendAdminLoginLog(dto);
         }
-    }*/
+    }
 }

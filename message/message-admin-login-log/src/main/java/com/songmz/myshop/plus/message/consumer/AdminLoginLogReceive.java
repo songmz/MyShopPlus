@@ -4,8 +4,8 @@ import com.songmz.myshop.plus.commons.utils.MapperUtils;
 import com.songmz.myshop.plus.provider.api.UmsAdminLoginLogService;
 import com.songmz.myshop.plus.provider.domain.UmsAdminLoginLog;
 import org.apache.dubbo.config.annotation.Reference;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>Title</p>

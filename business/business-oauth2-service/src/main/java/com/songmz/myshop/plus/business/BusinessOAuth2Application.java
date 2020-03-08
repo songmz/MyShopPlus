@@ -15,8 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 */
 @EnableDiscoveryClient
 @EnableFeignClients
-//@SpringBootApplication(scanBasePackageClasses = {BusinessOAuth2Application.class}, scanBasePackages = "com.songmz.myshop.plus.cloud.feign")
-@SpringBootApplication(scanBasePackageClasses = {BusinessOAuth2Application.class})
+@SpringBootApplication(scanBasePackageClasses = {BusinessOAuth2Application.class}, scanBasePackages = "com.songmz.myshop.plus.cloud.feign")
 public class BusinessOAuth2Application {
 
     public static void main(String[] args) {

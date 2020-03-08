@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * <p>消息生产者.</p>
- * <p>Description:</p>
+ * <p>Description: 该类使用的两个注解表示其即是Dubbo服务，又是http服务</p>
  *
  * @author songmz
  * @date 2020/3/8

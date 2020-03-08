@@ -15,4 +15,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 @FeignClient(value = "cloud-message", path = "message", configuration = FeignRequestConfiguration.class, fallback = MessageFeignFallback.class)
 public interface MessageFeign {
 
+    /**
+     * 作废
+     * @param dto
+     * @return
+     * @see com.songmz.myshop.plus.cloud.controller.MessageController
+     */
+//    @PostMapping(value = "admin/login/log")
+//    String sendAdminLoginLog(@RequestBody UmsAdminLoginLogDTO dto);
 }
