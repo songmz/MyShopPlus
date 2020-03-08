@@ -11,7 +11,7 @@ base:
       port: 8080
     redis:
       hostname: redis.songmz.com
-      port: 6380
+      port: 6379
 
 spring:
   application:
@@ -43,15 +43,22 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-#  redis:
-#    host: ${base.config.redis.hostname}
-#    port: ${base.config.redis.port}
-#    lettuce:
-#      pool:
-#        min-idle: 0
-#        max-idle: 8
-#        max-wait: -1ms
-#        max-active: 8
+  redis:
+    host: ${base.config.redis.hostname}
+    port: ${base.config.redis.port}
+    # 集群配置，上生产后使用
+    #    cluster:
+    #      nodes: ${base.config.redis.hostname}:${base.config.redis.port}
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
+    # Redis高可用集群，k8s已经实现了，所以就可以忽略了，如果是在docker中部署redis，还是要用sentinel的
+#    sentinel:
+#      master: mymaster
+#      nodes: ${base.config.redis.hostname}:26379
 
 dubbo:
   scan:

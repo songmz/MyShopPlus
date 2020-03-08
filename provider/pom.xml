@@ -12,7 +12,7 @@
     <artifactId>provider</artifactId>
     <packaging>pom</packaging>
     <url>http://www.songmz.com</url>
-    <inceptionYear>2018-Now</inceptionYear>
+    <inceptionYear>2020-Now</inceptionYear>
 
     <licenses>
         <license>
@@ -90,17 +90,17 @@
             <artifactId>commons-provider</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.songmz.myshop.plus</groupId>-->
-<!--            <artifactId>configuration-sentinel</artifactId>-->
-<!--            <version>${project.parent.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.songmz.myshop.plus</groupId>
+            <artifactId>configuration-sentinel</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <modules>
         <module>provider-admin-api</module>
         <module>provider-admin-service</module>
-<!--        <module>provider-admin-login-log-api</module>-->
-<!--        <module>provider-admin-login-log-service</module>-->
+        <module>provider-admin-login-log-api</module>
+        <module>provider-admin-login-log-service</module>
     </modules>
 </project>

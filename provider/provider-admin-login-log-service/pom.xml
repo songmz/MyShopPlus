@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>provider-admin-service</artifactId>
+    <artifactId>provider-admin-login-log-service</artifactId>
     <packaging>jar</packaging>
     <url>http://www.songmz.com</url>
     <inceptionYear>2020-Now</inceptionYear>
@@ -45,12 +45,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Spring Cloud -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-        </dependency>
-
         <!-- DataSource -->
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -77,10 +71,9 @@
         </dependency>
 
         <!-- Projects -->
-
         <dependency>
             <groupId>com.songmz.myshop.plus</groupId>
-            <artifactId>provider-admin-api</artifactId>
+            <artifactId>provider-admin-login-log-api</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
@@ -91,7 +84,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.songmz.myshop.plus.provider.ProviderAdminApplication</mainClass>
+                    <mainClass>com.songmz.myshop.plus.provider.ProviderAdminLoginLogApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

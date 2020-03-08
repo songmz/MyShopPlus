@@ -1,8 +1,10 @@
 package com.songmz.myshop.plus.provider.service;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.songmz.myshop.plus.provider.api.UmsAdminService;
 import com.songmz.myshop.plus.provider.domain.UmsAdmin;
 import com.songmz.myshop.plus.provider.mapper.UmsAdminMapper;
+import com.songmz.myshop.plus.provider.service.fallback.UmsAdminServiceFallback;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import tk.mybatis.mapper.entity.Example;
@@ -45,8 +47,14 @@ public class UmsAdminServiceImpl implements UmsAdminService {
      * @return {@link UmsAdmin}
      */
     @Override
-//    @SentinelResource(value = "getByUsername", fallback = "getByUsernameFallback", fallbackClass = UmsAdminServiceFallback.class)
+    @SentinelResource(value = "getByUsername", fallback = "getByUsernameFallback", fallbackClass = UmsAdminServiceFallback.class)
     public UmsAdmin get(String username) {
+
+        // 模拟一个异常，用于测试熔断
+//        if ("admin".equals(username)) {
+//           throw new IllegalArgumentException("invode args");
+//        }
+
         Example example = new Example(UmsAdmin.class);
         example.createCriteria().andEqualTo("username", username);
         return umsAdminMapper.selectOneByExample(example);

@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>com.songmz.myshop.plus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>provider</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>configuration</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>provider-admin-login-log-api</artifactId>
+    <packaging>jar</packaging>
     <url>http://www.songmz.com</url>
     <inceptionYear>2020-Now</inceptionYear>
 
@@ -29,8 +29,4 @@
         </developer>
     </developers>
 
-    <modules>
-        <module>configuration-feign</module>
-        <module>configuration-sentinel</module>
-    </modules>
 </project>
