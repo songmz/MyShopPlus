@@ -25,7 +25,7 @@
         <module>business</module>
         <module>gateway</module>
         <module>cloud</module>
-<!--        <module>message</module>-->
+        <module>message</module>
     </modules>
 
     <properties>

@@ -25,5 +25,3 @@ rebel.xml
 logs/
 temp/
 *.class
-/target/
-/target/
